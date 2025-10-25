@@ -1,0 +1,351 @@
+    /* Additional styles for user details page */
+.detail-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    margin: 2rem 0;
+    border: 1px solid var(--border);
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.detail-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+/* Detail grid layout */
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.detail-group {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+.detail-value {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(248, 249, 250, 0.8);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--text);
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.detail-value:hover {
+    background: rgba(67, 97, 238, 0.05);
+    border-color: rgba(67, 97, 238, 0.2);
+}
+
+/* Full width fields */
+.detail-full {
+    grid-column: 1 / -1;
+}
+
+/* Quick actions section */
+.quick-actions {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border);
+}
+
+.quick-actions h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.quick-actions-grid {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Tips card */
+.tips-card {
+    background: rgba(255, 209, 102, 0.1);
+    border: 1px solid var(--warning);
+    border-left: 4px solid var(--warning);
+}
+
+.tips-card h3 {
+    color: #d18a00;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.tips-list {
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.tips-list li {
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.tips-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Status indicators */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-left: 0.5rem;
+}
+
+.status-active {
+    background: rgba(6, 214, 160, 0.1);
+    color: #058a65;
+}
+
+.status-inactive {
+    background: rgba(239, 71, 111, 0.1);
+    color: #d12a54;
+}
+
+/* User avatar section (optional enhancement) */
+.user-avatar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), #7209b7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.user-initials {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .detail-card {
+        padding: 1.5rem;
+        margin: 1rem 0;
+    }
+
+    .detail-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .detail-title {
+        font-size: 1.5rem;
+    }
+
+    .detail-actions {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .detail-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .quick-actions-grid {
+        flex-direction: column;
+    }
+
+    .quick-actions-grid .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .detail-card {
+        padding: 1rem;
+    }
+
+    .detail-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .detail-title {
+        font-size: 1.3rem;
+    }
+
+    .detail-value {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+
+    .quick-actions {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+
+    .quick-actions h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Animation for detail cards */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.detail-card {
+    animation: slideInUp 0.5s ease-out;
+}
+
+.tips-card {
+    animation: slideInUp 0.5s ease-out 0.2s both;
+}
+/* Action buttons in table */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-success {
+    background: var(--success);
+    color: white;
+}
+
+.btn-success:hover {
+    background: #05b38a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(6, 214, 160, 0.3);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+}
+
+.btn-danger {
+    background: var(--error);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #d12a54;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 71, 111, 0.3);
+}
+
+/* Default button style */
+.btn:not(.btn-success):not(.btn-primary):not(.btn-danger) {
+    background: var(--border);
+    color: var(--text);
+}
+
+.btn:not(.btn-success):not(.btn-primary):not(.btn-danger):hover {
+    background: #dee2e6;
+    transform: translateY(-2px);
+}
+/* Enhanced button styles for detail page */
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--border);
+    color: var(--text);
+}
+
+.btn-outline:hover {
+    background: var(--border);
+    transform: translateY(-2px);
+}
+
+/* Loading state for detail values */
+.detail-value.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    color: transparent;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}

@@ -1,0 +1,278 @@
+:root {
+    --primary: #4361ee;
+    --primary-dark: #3a56d4;
+    --error: #ef476f;
+    --success: #06d6a0;
+    --warning: #ffd166;
+    --background: #f8f9fa;
+    --card-bg: #ffffff;
+    --text: #2b2d42;
+    --text-light: #8d99ae;
+    --border: #e9ecef;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --header-bg: #ffffff;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+    background: var(--header-bg);
+    box-shadow: var(--header-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+    min-height: 70px;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0;
+    background: linear-gradient(135deg, var(--primary), #7209b7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Navigation Styles */
+.header nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.header nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+.header nav a:hover {
+    color: var(--primary);
+    background: rgba(67, 97, 238, 0.1);
+    transform: translateY(-1px);
+}
+
+.header nav a:last-child {
+    background: rgba(239, 71, 111, 0.1);
+    color: var(--error);
+    font-weight: 600;
+}
+
+.header nav a:last-child:hover {
+    background: rgba(239, 71, 111, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Alert Styles */
+.alert {
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    font-weight: 500;
+    position: relative;
+    animation: slideIn 0.4s ease-out;
+    border-left: 4px solid transparent;
+    box-shadow: var(--shadow);
+}
+
+.alert-success {
+    background: rgba(6, 214, 160, 0.1);
+    border-color: var(--success);
+    color: #058a65;
+    border-left-color: var(--success);
+}
+
+.alert-error {
+    background: rgba(239, 71, 111, 0.1);
+    border-color: var(--error);
+    color: #d12a54;
+    border-left-color: var(--error);
+}
+
+.alert::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    border-radius: 4px 0 0 4px;
+}
+
+.alert-success::before {
+    background: var(--success);
+}
+
+.alert-error::before {
+    background: var(--error);
+}
+
+/* Close button for alerts (optional enhancement) */
+.alert {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: currentColor;
+    opacity: 0.7;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: opacity 0.3s ease;
+}
+
+.alert-close:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.alert.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 20px;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .header nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .header nav a {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .alert {
+        margin: 1rem 0;
+        padding: 0.875rem 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .header nav a {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .header h1 {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+}
+
+/* Additional enhancements */
+.header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.header nav a:hover::after {
+    width: 80%;
+}
+
+.header nav a:last-child::after {
+    background: var(--error);
+}
+
+/* Smooth transitions for interactive elements */
+.header nav a,
+.alert,
+.alert-close {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
