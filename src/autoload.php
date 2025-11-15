@@ -5,6 +5,7 @@ use core\exceptions\ExceptionHandler;
 function autoload(): void
 {
     spl_autoload_register(function ($className) {
+        // Уберите 'autoload.php' из пути
         $baseDir = __DIR__ . '/';
         $relativeClass = str_replace('App\\', 'app\\', $className);
         $file = $baseDir . str_replace('\\', '/', $relativeClass) . '.php';
@@ -15,20 +16,21 @@ function autoload(): void
             error_log("Class file not found: " . $file);
         }
     });
+
     set_exception_handler(function ($exception) {
         $handler = new ExceptionHandler();
         $handler->handle($exception);
     });
 
-
     set_error_handler(
-        /**
-        * @throws ErrorException
-        */ 
+    /**
+     * @throws ErrorException
+     */
         function ($severity, $message, $file, $line) {
-        if (!(error_reporting() & $severity)) {
-            return;
+            if (!(error_reporting() & $severity)) {
+                return;
+            }
+            throw new ErrorException($message, 0, $severity, $file, $line);
         }
-        throw new ErrorException($message, 0, $severity, $file, $line);
-    });
+    );
 }

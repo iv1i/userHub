@@ -1,7 +1,7 @@
 <?php \core\Views::extends('main'); ?>
 
 <?php \core\Views::section('styles') ?>
-<link href="../../../resources/css/list.css" rel="stylesheet" />
+<link href="/css/list.css" rel="stylesheet" />
 <?php \core\Views::endsection() ?>
 
 <?php \core\Views::section('title') ?>
@@ -16,7 +16,7 @@ UserHub | Users
             <a href="/users/create" class="btn btn-success"><b>Add New User </b> <i class="fa-solid fa-user-plus"></i></a>
         </div>
 
-        <?php if ($users->rowCount() > 0): ?>
+        <?php if ($users): ?>
             <div class="table-container">
                 <table class="table">
                     <thead>
@@ -51,25 +51,25 @@ UserHub | Users
                     </tr>
                     </thead>
                     <tbody>
-                    <?php while ($row = $users->fetch(PDO::FETCH_ASSOC)): ?>
+                    <?php for ($i = 0; $i < sizeof($users); $i++) { ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($row['id']); ?></td>
-                            <td><?php echo htmlspecialchars($row['username']); ?></td>
-                            <td><?php echo htmlspecialchars($row['first_name']); ?></td>
-                            <td><?php echo htmlspecialchars($row['last_name']); ?></td>
-                            <td><?php echo ucfirst(htmlspecialchars($row['gender'])); ?></td>
-                            <td><?php echo htmlspecialchars($row['birthdate']); ?></td>
+                            <td><?php echo htmlspecialchars($users[$i]['id']); ?></td>
+                            <td><?php echo htmlspecialchars($users[$i]['username']); ?></td>
+                            <td><?php echo htmlspecialchars($users[$i]['first_name']); ?></td>
+                            <td><?php echo htmlspecialchars($users[$i]['last_name']); ?></td>
+                            <td><?php echo ucfirst(htmlspecialchars($users[$i]['gender'])); ?></td>
+                            <td><?php echo htmlspecialchars($users[$i]['birthdate']); ?></td>
                             <td>
                                 <div class="action-buttons">
-                                    <a href="/users/<?php echo $row['id']; ?>" class="btn"><i class="fa-solid fa-eye"></i></a>
-                                    <a href="/users/<?php echo $row['id']; ?>/edit" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="/users/<?php echo $row['id']; ?>/delete"
+                                    <a href="/users/<?php echo $users[$i]['id']; ?>" class="btn"><i class="fa-solid fa-eye"></i></a>
+                                    <a href="/users/<?php echo $users[$i]['id']; ?>/edit" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="/users/<?php echo $users[$i]['id']; ?>/delete"
                                        class="btn btn-danger"
                                        onclick="return confirm('Are you sure you want to delete this user?')"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
-                    <?php endwhile; ?>
+                    <?php }; ?>
                     </tbody>
                 </table>
             </div>

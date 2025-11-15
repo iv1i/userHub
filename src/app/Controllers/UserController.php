@@ -36,6 +36,7 @@ class UserController {
      */
     public function view($id): void {
         $user = $this->service->view($id, $this->user);
+        //dd($user);
         
         $data = [
             'user' => $user,

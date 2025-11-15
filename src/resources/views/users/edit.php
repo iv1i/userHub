@@ -1,7 +1,7 @@
 <?php \core\Views::extends('main'); ?>
 
 <?php \core\Views::section('styles') ?>
-<link href="../../../resources/css/edit.css" rel="stylesheet" />
+<link href="/css/edit.css" rel="stylesheet" />
 <?php \core\Views::endsection() ?>
 
 <?php \core\Views::section('title') ?>
@@ -131,7 +131,6 @@ UserHub | Edit
 
                     <div class="form-actions">
                         <button type="submit" class="btn btn-success">Update User</button>
-                        <a href="/users/<?php echo htmlspecialchars($user->id); ?>/edit" class="btn btn-outline">Cancel</a>
                         <a href="/users/<?php echo htmlspecialchars($user->id); ?>/delete"
                            class="btn btn-danger"
                            onclick="return confirm('Are you sure you want to delete this user? This action cannot be undone.')">

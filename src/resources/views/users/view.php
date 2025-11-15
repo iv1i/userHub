@@ -1,7 +1,7 @@
 <?php \core\Views::extends('main'); ?>
 
 <?php \core\Views::section('styles') ?>
-<link href="../../../resources/css/view.css" rel="stylesheet" />
+<link href="/css/view.css" rel="stylesheet" />
 <?php \core\Views::endsection() ?>
 
 <?php \core\Views::section('title') ?>

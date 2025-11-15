@@ -7,7 +7,7 @@ Views::extends('main');
 ?>
 
 <?php Views::section('styles') ?>
-    <link href="../../../resources/css/create.css" rel="stylesheet" />
+    <link href="/css/create.css" rel="stylesheet" />
 <?php Views::endsection() ?>
 
 <?php Views::section('title') ?>

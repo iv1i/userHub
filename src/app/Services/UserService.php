@@ -25,7 +25,7 @@ class UserService
     public function view(string $id, User $user): ?User
     {
         $user->id = $id;
-        return $this->repository->find($user);
+        return $this->repository->find($id, $user);
     }
 
     public function create(UserDTO $dto, User $user): array

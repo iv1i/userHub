@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= \core\Views::yield('title', 'App') ?></title>
-    <link rel="stylesheet" href="../../../resources/css/main.css" type="text/css">
-    <link rel="stylesheet" href="../../../resources/css/fontawesome-free-7.1.0-web/css/all.css" type="text/css">
-    <link rel="icon" href="../../../resources/icons/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/css/fontawesome-free-7.1.0-web/css/all.css" type="text/css">
+    <link rel="icon" href="/icons/favicon.png" type="image/png">
     <?= \core\Views::yield('styles') ?>
 
     <?= \core\Views::yield('head_scripts') ?>
@@ -14,7 +14,7 @@
 <body>
 <div class="header">
     <div class="container">
-        <h1>UserHub</h1>
+        <h1><?php echo env('APP_NAME') ?></h1>
         <?php if (isset($_SESSION['admin_logged_in'])): ?>
             <nav>
                 <a href="/users">Users</a>

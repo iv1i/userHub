@@ -10,8 +10,8 @@ class UserRepository
 {
     public function allPaginate(User $user, UsersListDTO $dto): array
     {
-        $pagination = new Pagination($dto->page, 10, $user->countAll());
-        $users = $user->readAll($dto->page, 10, $dto->sort_by, $dto->sort_order);
+        $pagination = new Pagination($dto->page, 10, $user->count());
+        $users = $user->findAll($dto->page, 10, $dto->sort_by, $dto->sort_order);
         
         return [
             'users' => $users,
@@ -19,10 +19,9 @@ class UserRepository
         ];
     }
 
-    public function find(User $user): ?User
+    public function find(int $id,User $user): ?User
     {
-        if($user->readOne()) return $user;
-        else return null;
+        return $user->find($id);
     }
 
     public function create(User $user, array $data): bool
@@ -42,6 +41,6 @@ class UserRepository
 
     public function delete(User $user, int $id): bool
     {
-        return $user->delete($id);
+        return $user->delete();
     }
 }
