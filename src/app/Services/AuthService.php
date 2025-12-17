@@ -5,9 +5,13 @@ namespace app\Services;
 use app\DTO\LoginDTO;
 use core\Auth;
 use core\Security;
+use Exception;
 
 class AuthService
 {
+    /**
+     * @throws Exception
+     */
     public function login(LoginDTO $dto): array
     {
         if (!Security::verifyCSRFToken($dto->csrf_token)) {

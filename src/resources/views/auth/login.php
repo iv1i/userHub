@@ -6,6 +6,7 @@
     <title>Users-App | Login</title>
     <script src="https://kit.fontawesome.com/925f64a3cb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="/icons/favicon.png" type="image/png">
 </head>
 <body>
     <div class="card">

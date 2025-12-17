@@ -29,8 +29,8 @@ UserHub | <?php echo htmlspecialchars($user->username ?? ''); ?>
                     <div class="avatar-placeholder">
                         <?php
                         $initials = '';
-                        if (!empty($user->first_name)) $initials .= strtoupper(substr($user->first_name, 0, 1));
-                        if (!empty($user->last_name)) $initials .= strtoupper(substr($user->last_name, 0, 1));
+                        if (!empty($user->first_name)) $initials .= mb_strtoupper(mb_substr($user->first_name, 0, 1, 'UTF-8'), 'UTF-8');
+                        if (!empty($user->last_name)) $initials .= mb_strtoupper(mb_substr($user->last_name, 0, 1, 'UTF-8'), 'UTF-8');
                         echo $initials ?: 'U';
                         ?>
                     </div>

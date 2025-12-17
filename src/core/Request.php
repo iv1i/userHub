@@ -2,7 +2,7 @@
 
 namespace core;
 
-class Request
+abstract class Request
 {
     protected array $query;
     protected array $request;
