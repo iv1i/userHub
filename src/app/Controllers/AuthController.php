@@ -32,7 +32,6 @@ class AuthController {
      */
     public function login(LoginRequest $request): void
     {
-        dd($_POST);
         $data = $this->service->login($request->getDTO());
 
         echo Views::make('auth/login', $data);
