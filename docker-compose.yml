@@ -16,7 +16,7 @@ services:
       MYSQL_USER: '${DB_USER}'
       MYSQL_PASSWORD: '${DB_PASS}'
     volumes:
-      - ./src/database/init.sql:/docker-entrypoint-initdb.d/dump.sql
+      - ./src/database/init.sql:/docker-entrypoint-initdb.d/init.sql
       - db_data:/var/lib/mysql
     ports:
       - "3306:3306"
